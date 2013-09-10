@@ -21,7 +21,7 @@ shuffle($adsArray);
 foreach($adsArray as $ad){
 
 	echo '
-					<li><img src="ads/'.$ad.'" alt="'.$ad.'"/></li>';
+					<li><img src="/ads/'.$ad.'" alt="'.$ad.'"/></li>';
 }
 
 ?>	
@@ -59,15 +59,30 @@ foreach($adsArray as $ad){
 							<li><a href="http://www.gametimesportscenter.net">Our Facilities</a></li>
 							<li><a href="about-rules">Rules & Governance</a></li>
 							<li><a href="join-lessons">Lessons & Training</a></li>
-	                  		<li><a href="join-sign">Sign Up</a></li>
 	                  		<li><a href="join-tryouts">Tryouts</a></li>
 							<li><a href="/Teams">Teams</a></li>
 							<li><a href="/Players">Alumni</a></li>								
 							<li ><a href="calendar">Calendar</a></li>
 							<li ><a href="stats">Stats</a></li>
 							<li ><a href="stats">Shop</a></li>
-							<li ><a href="blog.html">Blog</a></li>
-	              			<li ><a href="contact.html">Contact</a></li>
+	              			<li ><a href="contact.html">Contact</a></li><?php 
+				  			
+				  			//if logged in...
+				  			if($this->Session->check('Auth.User')){
+				  				
+				  				//show the logout and profile buttons
+				  				echo '
+	              			<li ><a href="/Users/account/">Account</a></li>
+	              			<li ><a href="/Users/logout">Log Out</a></li>';
+				  			}else{
+				  				
+				  				//otherwise, show the login
+				  				echo '
+	                  		<li><a href="/Users/add">Sign Up</a></li>
+				  			<li><a href="/Users/login">Login</a></li>';
+				  			}
+				  			
+?>
 
 						</ul>
 
@@ -232,23 +247,23 @@ foreach($adsArray as $ad){
 
 <!-- start: Java Script -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery-1.9.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.isotope.min.js"></script>
-<script src="js/jquery.imagesloaded.js"></script>
-<script src="js/flexslider.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/jquery.cslider.js"></script>
-<script src="js/slider.js"></script>
-<script src="js/jquery.fancybox.js"></script>
+<script src="/js/jquery-1.9.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.isotope.min.js"></script>
+<script src="/js/jquery.imagesloaded.js"></script>
+<script src="/js/flexslider.js"></script>
+<script src="/js/carousel.js"></script>
+<script src="/js/jquery.cslider.js"></script>
+<script src="/js/slider.js"></script>
+<script src="/js/jquery.fancybox.js"></script>
 
-<script src="js/excanvas.js"></script>
-<script src="js/jquery.flot.js"></script>
-<script src="js/jquery.flot.pie.min.js"></script>
-<script src="js/jquery.flot.stack.js"></script>
-<script src="js/jquery.flot.resize.min.js"></script>
+<script src="/js/excanvas.js"></script>
+<script src="/js/jquery.flot.js"></script>
+<script src="/js/jquery.flot.pie.min.js"></script>
+<script src="/js/jquery.flot.stack.js"></script>
+<script src="/js/jquery.flot.resize.min.js"></script>
 
-<script src="js/custom.js"></script>
+<script src="/js/custom.js"></script>
 <!-- end: Java Script -->
 
 </body>

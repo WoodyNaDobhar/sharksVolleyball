@@ -30,7 +30,7 @@ App::uses('AppController', 'Controller');
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
 class PagesController extends AppController {
-
+	
 /**
  * This controller does not use a model
  *
@@ -65,6 +65,18 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+		
+		//security
+		if($page == 'admin' && !($this->Session->read('Auth.User.role') == ROLE_ADMIN)){
+			$this->adminBounce();
+		}
+		
+		//extra data by page
+		if($page == 'home'){
+			$this->loadModel('Scroller');
+			$scrollers = $this->Scroller->find('all');
+			$this->set('scrollers', $scrollers);
+		}
 
 		try {
 			$this->render(implode('/', $path));

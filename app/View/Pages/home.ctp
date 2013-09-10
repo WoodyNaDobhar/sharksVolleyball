@@ -2,31 +2,22 @@
 	<!-- start: Slider -->
 	<div class="slider-wrapper">
 
-		<div id="da-slider" class="da-slider">
+		<div id="da-slider" class="da-slider"><?php 
+		
+			foreach($scrollers as $scroller){
+				
+				//extract the image alt
+				$imageAlt = '';
+				
+				echo '
 			<div class="da-slide">
-				<h2>Some Message!</h2>
-				<p>You'll be given the tools to update and change these bits here, including the message header, this message, the link below, and the image just to the right.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="img/parallax-slider/twitter.png" alt="image01" /></div>
-			</div>
-			<div class="da-slide">
-				<h2>Some Message!</h2>
-				<p>You'll be given the tools to update and change these bits here, including the message header, this message, the link below, and the image just to the right.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="img/parallax-slider/responsive.png" alt="image02" /></div>
-			</div>
-			<div class="da-slide">
-				<h2>Some Message!</h2>
-				<p>You'll be given the tools to update and change these bits here, including the message header, this message, the link below, and the image just to the right.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="img/parallax-slider/html5.png" alt="image03" /></div>
-			</div>
-			<div class="da-slide">
-				<h2>Some Message!</h2>
-				<p>You'll be given the tools to update and change these bits here, including the message header, this message, the link below, and the image just to the right.</p>
-				<a href="#" class="da-link">Read more</a>
-				<div class="da-img"><img src="img/parallax-slider/css3.png" alt="image04" /></div>
-			</div>
+				<h2>'.$scroller['Scroller']['header'].'</h2>
+				<p>'.$scroller['Scroller']['message'].'</p>
+				<a href="'.$scroller['Scroller']['link'].'" class="da-link">Read more</a>
+				<div class="da-img"><img src="'.$scroller['Scroller']['image'].'" alt="'.$imageAlt.'" /></div>
+			</div>';
+			}
+?>
 			<nav class="da-arrows">
 				<span class="da-arrows-prev"></span>
 				<span class="da-arrows-next"></span>
