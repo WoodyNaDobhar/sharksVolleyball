@@ -15,6 +15,10 @@ class ScrollersController extends AppController {
  * @return void
  */
 	public function index() {
+		
+		//security
+		$this->adminBounce();
+		
 		$this->Scroller->recursive = 0;
 		$this->set('scrollers', $this->paginate());
 	}
@@ -26,7 +30,10 @@ class ScrollersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
 		$this->Scroller->id = $id;
 		if (!$this->Scroller->exists()) {
 			throw new NotFoundException(__('Invalid scroller'));
@@ -40,7 +47,10 @@ class ScrollersController extends AppController {
  * @return void
  */
 	public function add() {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
 		if ($this->request->is('post')) {
 			
 			//try to upload the image
@@ -70,7 +80,10 @@ class ScrollersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
 		$this->Scroller->id = $id;
 		if (!$this->Scroller->exists()) {
 			throw new NotFoundException(__('Invalid scroller'));
@@ -94,7 +107,10 @@ class ScrollersController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}

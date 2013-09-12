@@ -60,7 +60,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 			  		</a>
-					<a class="brand" href="/"><i class="ico-cup circle"></i>Sharks<span>Volleyball</span>.</a>
+					<a class="brand" href="<?php echo ($isAdmin?"/admin":"/"); ?>"><i class="ico-volleyball circle"></i>Sharks<span>Volleyball</span>.</a>
 			  		<div class="nav-collapse collapse">
 						<ul class="nav">
 				  			<li class="active"><a href="/">Home</a></li>
@@ -69,19 +69,26 @@
 								<ul class="dropdown-menu">
 					  				<li><a href="/about-story">Our Story</a></li>
 									<li><a href="http://www.gametimesportscenter.net">Our Facilities</a></li>
-									<li><a href="/about-rules">Rules & Governance</a></li>
+									<li><a href="/about-club">Club Information</a></li>
 								</ul>
 				  			</li>
+							<li><a href="/join-tryouts">Tryouts</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-					  				<li><a href="/Teams/byYear/yyyy">yyyy</a></li>
+					  				<li><a href="/Teams/byYear/yyyy">2013</a></li>
+					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
+					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
+					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
+					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
+					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
+					  				<li><a href="/Teams/byYear/yyyy">2012</a></li>
+					  				<li><a href="/Teams/byYear/yyyy">2011</a></li>
+					  				<li><a href="/Teams/byYear/yyyy">2010</a></li>
 									<li><a href="/Players">Alumni</a></li>
 								</ul>
-				  			</li>									
-							<li><a href="/calendar">Calendar</a></li>
-							<li><a href="/stats">Stats</a></li>
-							<li><a href="/stats">Shop</a></li>
+				  			</li>
+							<li><a href="/store">Store</a></li>
 				  			<li><a href="/contact">Contact</a></li><?php 
 				  			
 				  			//if logged in...
@@ -92,25 +99,15 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Me<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-					  				<li><a href="/Users/account/'.$this->Session->read('Auth.User.id').'">Edit My Account</a></li>
-									<li><a href="/join-lessons">Lessons & Training</a></li>
-					  				<li><a href="/join-tryouts">Tryouts</a></li>
-									<li><a href="/Users/logout">Log Out</a></li>
+					  				<li><a href="/users/account/'.$this->Session->read('Auth.User.id').'">Edit My Account</a></li>
+									<li><a href="/users/logout">Log Out</a></li>
 								</ul>
 				  			</li>';
 				  			}else{
 				  				
 				  				//otherwise, show the login
 				  				echo '
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Members<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-				  					<li><a href="/Users/login">Login</a></li>
-									<li><a href="/join-lessons">Lessons & Training</a></li>
-					  				<li><a href="/join-tryouts">Tryouts</a></li>
-					  				<li><a href="/Users/add">Sign Up</a></li>
-								</ul>
-				  			</li>';
+							<li><a href="/users/login">Login</a></li>';
 				  			}
 ?>
 						</ul>

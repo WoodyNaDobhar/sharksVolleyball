@@ -72,14 +72,14 @@ foreach($adsArray as $ad){
 				  				
 				  				//show the logout and profile buttons
 				  				echo '
-	              			<li ><a href="/Users/account/">Account</a></li>
-	              			<li ><a href="/Users/logout">Log Out</a></li>';
+	              			<li ><a href="/users/account/">Account</a></li>
+	              			<li ><a href="/users/logout">Log Out</a></li>';
 				  			}else{
 				  				
 				  				//otherwise, show the login
 				  				echo '
-	                  		<li><a href="/Users/add">Sign Up</a></li>
-				  			<li><a href="/Users/login">Login</a></li>';
+	                  		<li><a href="/users/add">Sign Up</a></li>
+				  			<li><a href="/users/login">Login</a></li>';
 				  			}
 				  			
 ?>
@@ -132,77 +132,38 @@ foreach($adsArray as $ad){
 
 				<!-- start: Photo Stream -->
 				<div class="span3">
-					
 					<h3>Photo Stream</h3>
 					<div class="flickr-widget">
-							<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=latest&size=s&layout=x&source=user&user=29609591@N08"></script>
+						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=9&display=latest&size=s&layout=x&source=user&user=<?php echo $socials[$flickrId]['Social']['service_identity']; ?>"></script>
 						<div class="clear"></div>
 					</div>
-					
 				</div>
 				<!-- end: Photo Stream -->
 
 				<div class="span6">
-				
 					<!-- start: Follow Us -->
 					<h3>Follow Us!</h3>
-					<ul class="social-grid">
+					<ul class="social-grid"><?php 
+					
+					foreach($socials as $social){
+						
+						echo '
 						<li>
 							<div class="social-item">				
 								<div class="social-info-wrap">
 									<div class="social-info">
-										<div class="social-info-front social-twitter">
-											<a href="http://twitter.com"></a>
+										<div class="social-info-front social-'.$social['Social']['service'].'">
+											<a href="'.$social['Social']['url'].'"></a>
 										</div>
-										<div class="social-info-back social-twitter-hover">
-											<a href="http://twitter.com"></a>
+										<div class="social-info-back social-'.$social['Social']['service'].'-hover">
+											<a href="'.$social['Social']['url'].'"></a>
 										</div>	
 									</div>
 								</div>
 							</div>
-						</li>
-						<li>
-							<div class="social-item">				
-								<div class="social-info-wrap">
-									<div class="social-info">
-										<div class="social-info-front social-facebook">
-											<a href="http://facebook.com"></a>
-										</div>
-										<div class="social-info-back social-facebook-hover">
-											<a href="http://facebook.com"></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="social-item">				
-								<div class="social-info-wrap">
-									<div class="social-info">
-										<div class="social-info-front social-dribbble">
-											<a href="http://dribbble.com"></a>
-										</div>
-										<div class="social-info-back social-dribbble-hover">
-											<a href="http://dribbble.com"></a>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="social-item">				
-								<div class="social-info-wrap">
-									<div class="social-info">
-										<div class="social-info-front social-flickr">
-											<a href="http://flickr.com"></a>
-										</div>
-										<div class="social-info-back social-flickr-hover">
-											<a href="http://flickr.com"></a>
-										</div>	
-									</div>
-								</div>
-							</div>
-						</li>
+						</li>';
+					}
+?>
 					</ul>
 					<!-- end: Follow Us -->
 				

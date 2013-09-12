@@ -43,14 +43,43 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
+		
+		//uncomment this to stop double-login
+// 		if(isset($iniSet) && $iniSet && env('HTTPS')){
+// 			if(!defined('UNSECURE_COOKIE') || (UNSECURE_COOKIE != true)){
+// 				ini_set('session.cookie_secure', 1);
+// 			}
+// 		}
+		
 		if(in_array($this->name, array('Pages'))) {
 			$this->Auth->allow(array('display'));
 		}
 		$this->Auth->allow('index', 'view');
 		
-		//some defaults
+		//security
 		$isAdmin = ($this->Session->read('Auth.User.role') == ROLE_ADMIN);
 		$isUser = ($this->Session->read('Auth.User.role') == ROLE_USER);
+		$this->set('isAdmin', $isAdmin);
+		$this->set('isUser', $isUser);
+		
+		//get our various social mediums
+		$this->loadModel('Social');
+		$socials = $this->Social->find('all');
+		$this->set('socials', $socials);
+		
+		//get the flickr feed
+		foreach($socials as $key => $social){
+			if($social['Social']['service'] == 'flickr'){
+				$flickrId = $key;
+				continue;
+			}
+		}
+		$this->set('flickrId', $flickrId);
+		$flickrFeedJson = file_get_contents("http://ycpi.api.flickr.com/services/feeds/photos_public.gne?id=".$socials[$flickrId]['Social']['service_identity']."&format=json");
+		$flickrFeedJson = str_replace( 'jsonFlickrFeed(', '', $flickrFeedJson);
+		$flickrFeedJson = substr($flickrFeedJson, 0, strlen($flickrFeedJson) - 1);
+		$flickrFeed = json_decode($flickrFeedJson, TRUE);
+		$this->set('flickrFeed', $flickrFeed);
 	}
 
 	//toss anybody who tries to get in the admin area without creds.

@@ -73,9 +73,21 @@ class PagesController extends AppController {
 		
 		//extra data by page
 		if($page == 'home'){
+			
+			//scrollers
 			$this->loadModel('Scroller');
 			$scrollers = $this->Scroller->find('all');
 			$this->set('scrollers', $scrollers);
+			
+			//testimonials
+			$this->loadModel('Testimonial');
+			$testimonials = $this->Testimonial->find('all');
+			$this->set('testimonials', $testimonials);
+			
+			//everything else ;)
+			$this->loadModel('Home');
+			$home = $this->Home->find('first');
+			$this->set('home', $home);
 		}
 
 		try {

@@ -15,12 +15,19 @@ class UsersController extends AppController {
     }
 
     public function index() {
+		
+		//security
+		$this->adminBounce();
+		
         $this->User->recursive = 0;
         $this->set('users', $this->paginate());
     }
 
     public function view($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
@@ -44,7 +51,10 @@ class UsersController extends AppController {
     }
 
     public function edit($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
         $this->User->id = $id;
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
@@ -85,7 +95,10 @@ class UsersController extends AppController {
     }
 
     public function delete($id = null) {
-    	$this->adminBounce();
+		
+		//security
+		$this->adminBounce();
+		
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
