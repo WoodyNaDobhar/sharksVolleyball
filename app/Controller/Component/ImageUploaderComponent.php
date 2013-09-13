@@ -214,7 +214,7 @@ class ImageUploaderComponent extends Component {
      $fullFilename = $this->FileUploader->getFilename();
      $current_destination = $this->FileUploader->getDestination();
 		  
-     $current_filePath = $current_destination.$fullFilename;
+     $current_filePath = SERVER_PATH.$current_destination.$fullFilename;
 		  
      //we get the following information for our image
      list($width, $height, $type, $attr) = getimagesize($current_filePath);

@@ -345,12 +345,12 @@ class FileUploaderComponent extends Component {
   
   // parse out class params to make the final destination string
   if (empty($this->filename)) {
-      $destination = $this->destination . $this->uploadedFile->getFileEntry('name');
+      $destination = SERVER_PATH.$this->destination . $this->uploadedFile->getFileEntry('name');
       $this->setFilename($this->uploadedFile->getFileEntry('name'));
   } else {
-      $destination = $this->destination . $this->filename.$ext;
+      $destination = SERVER_PATH.$this->destination . $this->filename.$ext;
   }
-    
+  
    // create the destination unless otherwise set
    if ($this->create_destination()) {
       $dir = dirname($destination);
@@ -465,7 +465,7 @@ class UploadFile {
   * saving the file to the server
   * */
  public function save($path) {
-        //print "path for saving file is ".$path;   
+        //print "path for saving file is ".$path;
         if(!move_uploaded_file($this->file['tmp_name'], $path)){
           return false;
         }

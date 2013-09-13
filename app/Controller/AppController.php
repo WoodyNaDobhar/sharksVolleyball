@@ -75,7 +75,9 @@ class AppController extends Controller {
 			}
 		}
 		$this->set('flickrId', $flickrId);
-		$flickrFeedJson = file_get_contents("http://ycpi.api.flickr.com/services/feeds/photos_public.gne?id=".$socials[$flickrId]['Social']['service_identity']."&format=json");
+		$ch = curl_init ("http://ycpi.api.flickr.com/services/feeds/photos_public.gne?id=".$socials[$flickrId]['Social']['service_identity']."&format=json");
+		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		$flickrFeedJson = curl_exec ($ch);
 		$flickrFeedJson = str_replace( 'jsonFlickrFeed(', '', $flickrFeedJson);
 		$flickrFeedJson = substr($flickrFeedJson, 0, strlen($flickrFeedJson) - 1);
 		$flickrFeed = json_decode($flickrFeedJson, TRUE);

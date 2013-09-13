@@ -377,3 +377,9 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+/**
+ * set the local absolute path
+ */
+$tmppath = str_replace('/Config', '', realpath(dirname(__FILE__)));
+define("SERVER_PATH", $tmppath.'/webroot');
