@@ -60,7 +60,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 			  		</a>
-					<a href="<?php echo ($isAdmin?"/admin":"/"); ?>"><img src="img/logo.png" width="162" height="68" /></a>
+					<a href="<?php echo ($isAdmin?"/admin":"/"); ?>"><img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/logo.png" width="162" height="68" /></a>
 					<!--<a class="brand" href="<?php echo ($isAdmin?"/admin":"/"); ?>"><i class="ico-volleyball circle"></i>Sharks<span>Volleyball</span>.</a> -->
 			  		<div class="nav-collapse collapse">
 						<ul class="nav">

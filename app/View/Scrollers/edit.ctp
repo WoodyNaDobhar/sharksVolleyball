@@ -16,7 +16,7 @@
 				</div>
 				<div class="span10">
 					<div class="scrollers form">
-					<?php echo $this->Form->create('Scroller');?>
+					<?php echo $this->Form->create(null, array('type' => 'file'));?>
 						<fieldset>
 							<legend><?php echo __('Edit Scroller'); ?></legend>
 						<?php
@@ -24,7 +24,7 @@
 							echo $this->Form->input('header');
 							echo $this->Form->input('message');
 							echo $this->Form->input('link');
-							echo $this->Form->input('image');
+							echo $this->Form->input('image', array('type' => 'file'));
 						?>
 						</fieldset>
 					<?php echo $this->Form->end(__('Submit'));?>

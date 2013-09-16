@@ -122,6 +122,7 @@ Configure::write('User.roles', array(
  * File destinations
  */
 define("FILE_SCROLL", '/img/parallax-slider');
+define("FILE_EMP", '/img/employees');
 
 /**
  * icons

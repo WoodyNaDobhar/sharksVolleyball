@@ -53,20 +53,28 @@ class ScrollersController extends AppController {
 		
 		if ($this->request->is('post')) {
 			
-			//update the file name
-			$this->request->data['Scroller']['image']['name'] = rand(100000, 999999).$this->request->data['Scroller']['image']['name'];
-			
-			//try to upload the image
-			try{
-				//call the function upload using the imageuploader component
-				$output = $this->ImageUploader->upload($this->request->data['Scroller']['image'], FILE_SCROLL);
+			//if there's an image uploaded
+			if($this->request->data['Scroller']['image']['name']){
+
+				//update the file name
+				$this->request->data['Scroller']['image']['name'] = rand(100000, 999999).$this->request->data['Scroller']['image']['name'];
+							
+				//try to upload the image
+				try{
+					//call the function upload using the imageuploader component
+					$output = $this->ImageUploader->upload($this->request->data['Scroller']['image'], FILE_SCROLL);
+								
+					//clean up the file_path to be less absolute
+					$output['file_path'] = str_replace(SERVER_PATH, '', $output['file_path']);
 				
-				//clean up the file_path to be less absolute
-				$output['file_path'] = str_replace(SERVER_PATH, '', $output['file_path']);
+					$this->request->data['Scroller']['image'] = $output['file_path'];
+				}catch(Exception $e){
+					$this->Session->setFlash(__('The scroller could not be saved:'.$e->getMessage().' Please, try again.'));
+				}
+			}else{
 				
-				$this->request->data['Scroller']['image'] = $output['file_path'];
-			}catch(Exception $e){
-				$this->Session->setFlash(__('The scroller could not be saved:'.$e->getMessage().' Please, try again.'));
+				//if there's nothing there, clean it out
+				unset($this->request->data['Scroller']['image']);
 			}
 			
 			//save it
@@ -96,6 +104,30 @@ class ScrollersController extends AppController {
 			throw new NotFoundException(__('Invalid scroller'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
+			
+			//if there's an image uploaded
+			if($this->request->data['Scroller']['image']['name']){
+
+				//update the file name
+				$this->request->data['Scroller']['image']['name'] = rand(100000, 999999).$this->request->data['Scroller']['image']['name'];
+							
+				//try to upload the image
+				try{
+					//call the function upload using the imageuploader component
+					$output = $this->ImageUploader->upload($this->request->data['Scroller']['image'], FILE_SCROLL);
+								
+					//clean up the file_path to be less absolute
+					$output['file_path'] = str_replace(SERVER_PATH, '', $output['file_path']);
+				
+					$this->request->data['Scroller']['image'] = $output['file_path'];
+				}catch(Exception $e){
+					$this->Session->setFlash(__('The scroller could not be saved:'.$e->getMessage().' Please, try again.'));
+				}
+			}else{
+				
+				//if there's nothing there, clean it out
+				unset($this->request->data['Scroller']['image']);
+			}
 			if ($this->Scroller->save($this->request->data)) {
 				$this->Session->setFlash(__('The scroller has been saved'));
 				$this->redirect(array('action' => 'index'));

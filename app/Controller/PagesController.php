@@ -88,6 +88,22 @@ class PagesController extends AppController {
 			$this->loadModel('Home');
 			$home = $this->Home->find('first');
 			$this->set('home', $home);
+		}elseif($page == 'about-story'){
+			
+			//employees
+			$this->loadModel('Employee');
+			$employees = $this->Employee->find('all');
+			$this->set('employees', $employees);
+			
+			//testimonials
+			$this->loadModel('Testimonial');
+			$testimonials = $this->Testimonial->find('all');
+			$this->set('testimonials', $testimonials);
+			
+			//everything else ;)
+			$this->loadModel('About');
+			$about = $this->About->find('first');
+			$this->set('about', $about);
 		}
 
 		try {

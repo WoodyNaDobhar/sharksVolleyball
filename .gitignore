@@ -24,3 +24,7 @@ Thumbs.db
 dwsync.xml
 
 /app/webroot/img/parallax-slider
+
+/app/Config/webroot/img/parallax-slider
+
+/app/Config/webroot/img/employees
