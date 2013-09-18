@@ -60,8 +60,8 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 			  		</a>
-					<a href="<?php echo ($isAdmin?"/admin":"/"); ?>"><img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/logo.png" width="162" height="68" /></a>
-					<!--<a class="brand" href="<?php echo ($isAdmin?"/admin":"/"); ?>"><i class="ico-volleyball circle"></i>Sharks<span>Volleyball</span>.</a> -->
+					<a href="<?php echo $isAdmin?"/admin":"/"; ?>"><img src="http://<?php echo $_SERVER['SERVER_NAME']; ?>/img/logo.png" width="162" height="68" /></a>
+					<!--<a class="brand" href="/"><i class="ico-volleyball circle"></i>Sharks<span>Volleyball</span>.</a> -->
 			  		<div class="nav-collapse collapse">
 						<ul class="nav">
 				  			<li class="active"><a href="/">Home</a></li>
@@ -73,7 +73,7 @@
 									<li><a href="/about-club">Club Information</a></li>
 								</ul>
 				  			</li>
-							<li><a href="/join-tryouts">Tryouts</a></li>
+							<li><a href="/tryout">Tryouts</a></li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams<b class="caret"></b></a>
 								<ul class="dropdown-menu">
@@ -90,27 +90,7 @@
 								</ul>
 				  			</li>
 							<li><a href="/store">Store</a></li>
-				  			<li><a href="/contact">Contact</a></li><?php 
-				  			
-				  			//if logged in...
-				  			if($this->Session->check('Auth.User')){
-				  				
-				  				//show the logout and profile buttons
-				  				echo '
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Me<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-					  				<li><a href="/users/account/'.$this->Session->read('Auth.User.id').'">Edit My Account</a></li>
-									<li><a href="/users/logout">Log Out</a></li>
-								</ul>
-				  			</li>';
-				  			}else{
-				  				
-				  				//otherwise, show the login
-				  				echo '
-							<li><a href="/users/login">Login</a></li>';
-				  			}
-?>
+				  			<li><a href="/contact">Contact</a></li>
 						</ul>
 			  		</div>
 				</div>

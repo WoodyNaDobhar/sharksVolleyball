@@ -8,8 +8,9 @@
 					<div class="actions">
 						<h3><?php echo __('Actions'); ?></h3>
 						<ul>
-					
 							<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
+                            <li><?php echo $this->Html->link(__('List Players'), array('controller' => 'players', 'action' => 'index')); ?> </li>
+                            <li><?php echo $this->Html->link(__('New Player'), array('controller' => 'players', 'action' => 'add')); ?> </li>
 						</ul>
 					</div>
 				</div>
@@ -23,13 +24,6 @@
 							echo $this->Form->input('password');
 							echo $this->Form->input('passwordConfirm', array('type'=>'password'));
 							echo $this->Form->input('email');
-							
-							//admins get a role select, others get default
-							if($this->Session->check('Auth.User') && $isAdmin){
-								echo $this->Form->input('role', array('options' => Configure::read('User.roles'), 'default' => '1'));
-							}else{
-								echo $this->Form->hidden('role', array('value' => 1));
-							}
 						?>
 						</fieldset>
 					<?php echo $this->Form->end(__('Submit'));?>

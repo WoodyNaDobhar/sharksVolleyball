@@ -36,7 +36,7 @@ class AppController extends Controller {
 	public $components = array(
 		'Session',
 		'Auth' => array(
-			'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+			'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'admin'),
 			'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home')
 		)
 	);
@@ -57,10 +57,8 @@ class AppController extends Controller {
 		$this->Auth->allow('index', 'view');
 		
 		//security
-		$isAdmin = ($this->Session->read('Auth.User.role') == ROLE_ADMIN);
-		$isUser = ($this->Session->read('Auth.User.role') == ROLE_USER);
+		$isAdmin = $this->Auth->user()?TRUE:FALSE;
 		$this->set('isAdmin', $isAdmin);
-		$this->set('isUser', $isUser);
 		
 		//get our various social mediums
 		$this->loadModel('Social');
@@ -86,7 +84,7 @@ class AppController extends Controller {
 
 	//toss anybody who tries to get in the admin area without creds.
 	function adminBounce(){
-		if($this->Session->read('Auth.User.role') != ROLE_ADMIN){
+		if(!$this->Auth->user()){
 			$backtrace = debug_backtrace();
 			$origin = $backtrace[1]['class']."->".$backtrace[1]['function'];
 			$this->log('BOUNCED from ADMIN function: '.$origin, LOG_DEBUG);

@@ -67,8 +67,8 @@ class PagesController extends AppController {
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		
 		//security
-		if($page == 'admin' && !($this->Session->read('Auth.User.role') == ROLE_ADMIN)){
-			$this->adminBounce();
+		if($page == 'admin' && !($this->Auth->user())){
+			return $this->redirect(array('controller' => 'Users', 'action' => 'login'));
 		}
 		
 		//extra data by page
@@ -104,6 +104,33 @@ class PagesController extends AppController {
 			$this->loadModel('About');
 			$about = $this->About->find('first');
 			$this->set('about', $about);
+		}elseif($page == 'about-club'){
+			
+			//testimonials
+			$this->loadModel('Testimonial');
+			$testimonials = $this->Testimonial->find('all');
+			$this->set('testimonials', $testimonials);
+			
+			//everything else ;)
+			$this->loadModel('Club');
+			$club = $this->Club->find('first');
+			$this->set('club', $club);
+		}elseif($page == 'tryout'){
+			
+			//tryout
+			$this->loadModel('Tryout');
+			$tryout = $this->Tryout->find('first');
+			$this->set('tryout', $tryout);
+			
+			//everything else ;)
+			$this->loadModel('State');
+			$states = $this->State->find('list');
+			$this->loadModel('Team');
+			$teams = $this->Team->find('list');
+			$this->loadModel('Position');
+			$positions = $this->Position->find('list');
+			array_unshift($positions, array(0 => "Any/Unsure"));
+			$this->set(compact('states', 'teams', 'positions'));
 		}
 
 		try {

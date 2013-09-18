@@ -109,16 +109,6 @@ CakeLog::config('error', array(
 ));
 
 /**
- * Roles
- */
-define("ROLE_USER", '1');
-define("ROLE_ADMIN", '2');
-Configure::write('User.roles', array(
-	'1'	=> 'User',
-	'2'	=> 'Admin',
-));
-
-/**
  * File destinations
  */
 define("FILE_SCROLL", '/img/parallax-slider');

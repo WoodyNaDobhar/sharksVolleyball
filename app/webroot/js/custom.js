@@ -506,3 +506,14 @@ jQuery(document).ready(function($){
 	});
 
 });
+
+//player form widgets
+jQuery(document).ready(function($){
+	
+	$('#PlayerPlayLast').click(function(){
+		$('#playMore').toggle();
+	});
+	$('#PlayerTryOther').click(function(){
+		$('#tryMore').toggle();
+	});
+});
