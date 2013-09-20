@@ -16,11 +16,6 @@
                     <div class="tryouts view">
                     <h2><?php echo __('Tryout'); ?></h2>
                         <dl>
-                            <dt><?php echo __('Id'); ?></dt>
-                            <dd>
-                                <?php echo h($tryout['Tryout']['id']); ?>
-                                &nbsp;
-                            </dd>
                             <dt><?php echo __('Cost'); ?></dt>
                             <dd>
                                 <?php echo h($tryout['Tryout']['cost']); ?>
@@ -29,6 +24,16 @@
                             <dt><?php echo __('Info'); ?></dt>
                             <dd>
                                 <?php echo h($tryout['Tryout']['info']); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('Payment Instructions'); ?></dt>
+                            <dd>
+                                <?php echo h($tryout['Tryout']['pay']); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('Thanks'); ?></dt>
+                            <dd>
+                                <?php echo h($tryout['Tryout']['thanks']); ?>
                                 &nbsp;
                             </dd>
                         </dl>

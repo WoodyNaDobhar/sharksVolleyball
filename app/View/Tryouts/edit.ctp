@@ -21,6 +21,8 @@
                             echo $this->Form->input('id');
                             echo $this->Form->input('cost');
                             echo $this->Form->input('info');
+                            echo $this->Form->input('pay');
+                            echo $this->Form->input('thanks');
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

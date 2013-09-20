@@ -2,7 +2,7 @@
 	<div id="page-title">
 		<div id="page-title-inner">
 			<div class="container">
-				<h2><i class="ico-volleyball ico-white"></i>About Us</h2>
+				<h2><i class="ico-volleyball ico-white"></i>Our Story</h2>
 			</div>
 		</div>
 	</div>

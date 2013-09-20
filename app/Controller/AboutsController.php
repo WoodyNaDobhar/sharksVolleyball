@@ -55,7 +55,7 @@ class AboutsController extends AppController {
 			$this->About->create();
 			if ($this->About->save($this->request->data)) {
 				$this->Session->setFlash(__('The about has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'view'));
 			} else {
 				$this->Session->setFlash(__('The about could not be saved. Please, try again.'));
 			}
@@ -80,7 +80,7 @@ class AboutsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->About->save($this->request->data)) {
 				$this->Session->setFlash(__('The about has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'view'));
 			} else {
 				$this->Session->setFlash(__('The about could not be saved. Please, try again.'));
 			}

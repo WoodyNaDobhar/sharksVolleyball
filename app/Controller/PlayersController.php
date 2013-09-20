@@ -59,9 +59,6 @@ class PlayersController extends AppController{
 		$this->adminBounce();
 		
 		if($this->request->is('post')){
-			
-			//attach the user id to the player
-			$this->request->data['Player']['user_id'] = $this->User->getLastInsertID();
 			$this->Player->create();
 			if ($this->Player->save($this->request->data)){
 				$this->Session->setFlash(__('The player has been saved.'));
