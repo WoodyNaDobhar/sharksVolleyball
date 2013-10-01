@@ -217,6 +217,7 @@ foreach($adsArray as $ad){
 <script src="/js/jquery.cslider.js"></script>
 <script src="/js/slider.js"></script>
 <script src="/js/jquery.fancybox.js"></script>
+<script src="/js/ckeditor/ckeditor.js"></script>
 
 <script src="/js/excanvas.js"></script>
 <script src="/js/jquery.flot.js"></script>

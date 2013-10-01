@@ -84,6 +84,22 @@ input, textarea{
 table{
 	width: 100%;
 }
+
+thead{
+	text-align: left;
+	font-size: 12px;
+	background-color: #29a9df;
+	color: #000000;
+}
+
+tbody{
+	text-align: left;
+	font-size: 12px;
+}
+
+tr.odd{
+	background-color: #EFEFEF;
+}
 			
 .title {
 	border-bottom: 3px double #f6f6f6;

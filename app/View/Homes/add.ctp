@@ -18,7 +18,7 @@
 						<fieldset>
 							<legend><?php echo __('Add Home'); ?></legend>
 						<?php
-							echo $this->Form->input('hero_msg');
+							echo $this->Form->input('hero_msg', array('class' => 'ckeditor'));
 							echo $this->Form->input('hero_cta');
 							echo $this->Form->input('hero_link', array('default' => 'http://'));
 							echo $this->Form->input('dp1_header');

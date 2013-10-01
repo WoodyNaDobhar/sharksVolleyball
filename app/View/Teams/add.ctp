@@ -21,6 +21,7 @@
                             <legend><?php echo __('Add Team'); ?></legend>
                         <?php
                             echo $this->Form->input('name');
+                            echo $this->Form->input('division_id');
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

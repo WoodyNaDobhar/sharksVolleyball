@@ -73,7 +73,13 @@
 									<li><a href="/about-club">Club Information</a></li>
 								</ul>
 				  			</li>
-							<li><a href="/tryout">Tryouts</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Tryouts<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+					  				<li><a href="/tryout">Registration</a></li>
+									<li><a href="/results">Results</a></li>
+								</ul>
+				  			</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams<b class="caret"></b></a>
 								<ul class="dropdown-menu">

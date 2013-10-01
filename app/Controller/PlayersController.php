@@ -69,9 +69,11 @@ class PlayersController extends AppController{
 		}
 		$states = $this->Player->State->find('list');
 		$teams = $this->Player->Team->find('list');
+		$divisions = $this->Player->Division->find('list');
+		$tryouts = $this->Player->Tryout->find('list');
 		$positions = $this->Player->Position->find('list');
 		array_unshift($positions, array(0 => "Any/Unsure"));
-		$this->set(compact('states', 'teams', 'positions'));
+		$this->set(compact('states', 'teams', 'divisions', 'tryouts', 'positions'));
 	}
 
 /**
@@ -104,9 +106,11 @@ class PlayersController extends AppController{
 		//regular stuff
 		$states = $this->Player->State->find('list');
 		$teams = $this->Player->Team->find('list');
+		$divisions = $this->Player->Division->find('list');
+		$tryouts = $this->Player->Tryout->find('list');
 		$positions = $this->Player->Position->find('list');
 		array_unshift($positions, array(0 => "Any/Unsure"));
-		$this->set(compact('states', 'teams', 'positions'));
+		$this->set(compact('states', 'teams', 'divisions', 'positions', 'tryouts'));
 		
 		//toggle state handling
 		$player = $this->Player->findById($id);

@@ -67,6 +67,8 @@ class TeamsController extends AppController {
 				$this->Session->setFlash(__('The team could not be saved. Please, try again.'));
 			}
 		}
+		$divisions = $this->Team->Division->find('list');
+		$this->set(compact('divisions'));
 	}
 
 /**
@@ -95,6 +97,8 @@ class TeamsController extends AppController {
 			$options = array('conditions' => array('Team.' . $this->Team->primaryKey => $id));
 			$this->request->data = $this->Team->find('first', $options);
 		}
+		$divisions = $this->Team->Division->find('list');
+		$this->set(compact('divisions'));
 	}
 
 /**

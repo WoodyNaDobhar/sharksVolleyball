@@ -16,6 +16,20 @@ class TryoutsController extends AppController {
 	public $components = array('Paginator');
 
 /**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		
+		//security
+		$this->adminBounce();
+		
+		$this->Tryout->recursive = 0;
+		$this->set('tryouts', $this->Paginator->paginate());
+	}
+
+/**
  * view method
  *
  * @throws NotFoundException
@@ -27,16 +41,9 @@ class TryoutsController extends AppController {
 		//security
 		$this->adminBounce();
 		
-		//there's only one tryout, select the first
-		$tryouts = $this->Tryout->find('first');
-		
-		//if it's empty, add one
-		if(count($tryouts) < 1){
-			return $this->redirect(array('action' => 'add'));
+		if (!$this->Tryout->exists($id)) {
+			throw new NotFoundException(__('Invalid tryout'));
 		}
-		
-		//get it
-		$id = $tryouts['Tryout']['id'];
 		$options = array('conditions' => array('Tryout.' . $this->Tryout->primaryKey => $id));
 		$this->set('tryout', $this->Tryout->find('first', $options));
 	}
@@ -55,11 +62,13 @@ class TryoutsController extends AppController {
 			$this->Tryout->create();
 			if ($this->Tryout->save($this->request->data)) {
 				$this->Session->setFlash(__('The tryout has been saved.'));
-				return $this->redirect(array('action' => 'view'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The tryout could not be saved. Please, try again.'));
 			}
 		}
+		$divisions = $this->Tryout->Division->find('list');
+		$this->set(compact('divisions'));
 	}
 
 /**
@@ -80,7 +89,7 @@ class TryoutsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Tryout->save($this->request->data)) {
 				$this->Session->setFlash(__('The tryout has been saved.'));
-				return $this->redirect(array('action' => 'view'));
+				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The tryout could not be saved. Please, try again.'));
 			}
@@ -88,6 +97,8 @@ class TryoutsController extends AppController {
 			$options = array('conditions' => array('Tryout.' . $this->Tryout->primaryKey => $id));
 			$this->request->data = $this->Tryout->find('first', $options);
 		}
+		$divisions = $this->Tryout->Division->find('list');
+		$this->set(compact('divisions'));
 	}
 
 /**
@@ -98,10 +109,6 @@ class TryoutsController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-		
-		//security
-		$this->adminBounce();
-		
 		$this->Tryout->id = $id;
 		if (!$this->Tryout->exists()) {
 			throw new NotFoundException(__('Invalid tryout'));

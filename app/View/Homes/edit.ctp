@@ -21,17 +21,17 @@
 							<legend><?php echo __('Edit Home'); ?></legend>
 						<?php
 							echo $this->Form->input('id');
-							echo $this->Form->input('hero_msg');
+							echo $this->Form->input('hero_msg', array('class' => 'ckeditor'));
 							echo $this->Form->input('hero_cta');
 							echo $this->Form->input('hero_link', array('default' => 'http://'));
 							echo $this->Form->input('dp1_header');
-							echo $this->Form->input('dp1_content');
+							echo $this->Form->input('dp1_content', array('class' => 'ckeditor'));
 							echo $this->Form->input('dp1_icon', array('options' => Configure::read('icons')));
 							echo $this->Form->input('dp2_header');
-							echo $this->Form->input('dp2_content');
+							echo $this->Form->input('dp2_content', array('class' => 'ckeditor'));
 							echo $this->Form->input('dp2_icon', array('options' => Configure::read('icons')));
 							echo $this->Form->input('dp3_header');
-							echo $this->Form->input('dp3_content');
+							echo $this->Form->input('dp3_content', array('class' => 'ckeditor'));
 							echo $this->Form->input('dp3_icon', array('options' => Configure::read('icons')));
 						?>
 						</fieldset>

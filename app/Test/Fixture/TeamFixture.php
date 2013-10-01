@@ -13,6 +13,7 @@ class TeamFixture extends CakeTestFixture {
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'key' => 'primary'),
 		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 10, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'division_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -27,7 +28,8 @@ class TeamFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'name' => 'Lorem ip'
+			'name' => 'Lorem ip',
+			'division_id' => 1
 		),
 	);
 

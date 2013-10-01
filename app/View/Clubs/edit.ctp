@@ -19,7 +19,7 @@
                             <legend><?php echo __('Edit Club'); ?></legend>
                         <?php
                             echo $this->Form->input('id');
-                            echo $this->Form->input('club');
+                            echo $this->Form->input('club', array('class' => 'ckeditor'));
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

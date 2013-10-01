@@ -19,17 +19,13 @@
                         <h2><?php echo __('Players'); ?></h2>
                         <table cellpadding="0" cellspacing="0">
                         <tr>
-                                <th><?php echo $this->Paginator->sort('id'); ?></th>
+                                <th><?php echo $this->Paginator->sort('number'); ?></th>
                                 <th><?php echo $this->Paginator->sort('first_name'); ?></th>
                                 <th><?php echo $this->Paginator->sort('last_name'); ?></th>
                                 <th><?php echo $this->Paginator->sort('city'); ?></th>
-                                <th><?php echo $this->Paginator->sort('home_phone'); ?></th>
-                                <th><?php echo $this->Paginator->sort('cell_phone'); ?></th>
-                                <th><?php echo $this->Paginator->sort('parents_email'); ?></th>
-                                <th><?php echo $this->Paginator->sort('grade'); ?></th>
-                                <th><?php echo $this->Paginator->sort('birthday'); ?></th>
                                 <th><?php echo $this->Paginator->sort('position_id'); ?></th>
                                 <th><?php echo $this->Paginator->sort('team_id'); ?></th>
+                                <th><?php echo $this->Paginator->sort('tryout'); ?></th>
                                 <th><?php echo $this->Paginator->sort('waiver'); ?></th>
                                 <th><?php echo $this->Paginator->sort('paid'); ?></th>
                                 <th><?php echo $this->Paginator->sort('approved'); ?></th>
@@ -37,20 +33,18 @@
                         </tr>
                         <?php foreach ($players as $player): ?>
                         <tr>
-                            <td><?php echo h($player['Player']['id']); ?>&nbsp;</td>
+                            <td><?php echo h($player['Player']['number']); ?>&nbsp;</td>
                             <td><?php echo h($player['Player']['first_name']); ?>&nbsp;</td>
                             <td><?php echo h($player['Player']['last_name']); ?>&nbsp;</td>
                             <td><?php echo h($player['Player']['city']); ?>&nbsp;</td>
-                            <td><?php echo h($player['Player']['home_phone']); ?>&nbsp;</td>
-                            <td><?php echo h($player['Player']['cell_phone']); ?>&nbsp;</td>
-                            <td><?php echo h($player['Player']['parents_email']); ?>&nbsp;</td>
-                            <td><?php echo h($player['Player']['grade']); ?>&nbsp;</td>
-                            <td><?php echo h($player['Player']['birthday']); ?>&nbsp;</td>
                             <td>
                                 <?php echo $this->Html->link($player['Position']['abbr'], array('controller' => 'positions', 'action' => 'view', $player['Position']['id'])); ?>
                             </td>
                             <td>
                                 <?php echo $this->Html->link($player['Team']['name'], array('controller' => 'teams', 'action' => 'view', $player['Team']['id'])); ?>
+                            </td>
+                            <td>
+                                <?php echo $this->Html->link($player['Tryout']['ends'], array('controller' => 'tryouts', 'action' => 'view', $player['Tryout']['id'])); ?>
                             </td>
                             <td><?php echo ($player['Player']['waiver']==1?'yes':'no'); ?>&nbsp;</td>
                             <td><?php echo ($player['Player']['paid']==1?'yes':'no'); ?>&nbsp;</td>
@@ -58,7 +52,7 @@
                             <td class="actions">
                                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $player['Player']['id'])); ?>
                                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $player['Player']['id'])); ?>
-                                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $player['Player']['id']), null, __('Are you sure you want to delete # %s?', $player['Player']['id'])); ?>
+                                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $player['Player']['id']), null, __('Are you sure you want to delete # %s?', $player['Player']['number'])); ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

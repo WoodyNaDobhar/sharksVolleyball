@@ -15,8 +15,9 @@ class TeamTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.team',
 		'app.player',
-		'app.user',
-		'app.state'
+		'app.state',
+		'app.position',
+		'app.division'
 	);
 
 /**

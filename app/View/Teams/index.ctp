@@ -11,6 +11,8 @@
                             <li><?php echo $this->Html->link(__('New Team'), array('action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('List Players'), array('controller' => 'players', 'action' => 'index')); ?> </li>
                             <li><?php echo $this->Html->link(__('New Player'), array('controller' => 'players', 'action' => 'add')); ?> </li>
+                            <li><?php echo $this->Html->link(__('List Divisions'), array('controller' => 'divisions', 'action' => 'index')); ?> </li>
+                            <li><?php echo $this->Html->link(__('New Division'), array('controller' => 'divisions', 'action' => 'add')); ?> </li>
                         </ul>
                     </div>
 				</div>
@@ -21,12 +23,14 @@
                         <tr>
                                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                                 <th><?php echo $this->Paginator->sort('name'); ?></th>
+                                <th><?php echo $this->Paginator->sort('division_id'); ?></th>
                                 <th class="actions"><?php echo __('Actions'); ?></th>
                         </tr>
                         <?php foreach ($teams as $team): ?>
                         <tr>
                             <td><?php echo h($team['Team']['id']); ?>&nbsp;</td>
                             <td><?php echo h($team['Team']['name']); ?>&nbsp;</td>
+                            <td><?php echo $this->Html->link($team['Division']['name'], array('controller' => 'divisions', 'action' => 'view', $team['Division']['id'])); ?>&nbsp;</td>
                             <td class="actions">
                                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $team['Team']['id'])); ?>
                                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $team['Team']['id'])); ?>

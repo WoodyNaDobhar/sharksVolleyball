@@ -8,7 +8,7 @@
                     <div class="actions">
                         <h3><?php echo __('Actions'); ?></h3>
                         <ul>
-                            <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Player.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Player.id'))); ?></li>
+                            <li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Player.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Player.number'))); ?></li>
                             <li><?php echo $this->Html->link(__('List Players'), array('action' => 'index')); ?></li>
                             <li><?php echo $this->Html->link(__('List Teams'), array('controller' => 'teams', 'action' => 'index')); ?> </li>
                             <li><?php echo $this->Html->link(__('New Team'), array('controller' => 'teams', 'action' => 'add')); ?> </li>
@@ -22,6 +22,7 @@
                             <legend><?php echo __('Edit Player'); ?></legend>
                         <?php
                             echo $this->Form->input('id');
+                            echo $this->Form->input('number');
                             echo $this->Form->input('first_name');
                             echo $this->Form->input('last_name');
                             echo $this->Form->input('mothers_first_name');
@@ -41,12 +42,14 @@
                             echo $this->Form->input('birthday', array('minYear' => date('Y') - 18, 'maxYear' => date('Y') - 10));
 							$gradYears = array_combine(range(date("Y"), date("Y")+10), range(date("Y"), date("Y")+10));
                             echo $this->Form->input('graduation_year', array("options" => $gradYears, "type" => "select", "label" => "Graduation Year"));
-                            echo $this->Form->input('play_last', array("label" => "Did you play club vb last year?"));
-                            echo $this->Form->input('play_where', array("label" => "If so, where?", "div" => array("style" => $playStyle, "id" => "playMore")));
-                            echo $this->Form->input('try_other', array("label" => "Are you trying out for other clubs?"));
-                            echo $this->Form->input('try_where', array("label" => "If so, where?", "div" => array("style" => $tryStyle, "id" => "tryMore")));
-                            echo $this->Form->input('position_id', array("label" => "What position are you trying out for?"));
-                            echo $this->Form->input('team_id', array("after" => "<br>If there are not an adequate number of girls that tryout in a specific age group, the decision on whether to have the team or not will be at the discretion of the director. Also, if we have enough talented players try out at a particular age group, we may have a second team at that particular age group."));
+                            echo $this->Form->input('play_last', array("label" => "Played Elsewhere Last Year"));
+                            echo $this->Form->input('play_where', array("label" => "At:", "div" => array("style" => $playStyle, "id" => "playMore")));
+                            echo $this->Form->input('try_other', array("label" => "Tried Out At Other Clubs"));
+                            echo $this->Form->input('try_where', array("label" => "With:", "div" => array("style" => $tryStyle, "id" => "tryMore")));
+                            echo $this->Form->input('tryout_id');
+                            echo $this->Form->input('position_id', array("label" => "What position are they playing?"));
+                            echo $this->Form->input('division_id');
+                            echo $this->Form->input('team_id');
                             echo $this->Form->input('approved', array("label" => "The player is approved and active."));
                             echo $this->Form->input('paid', array("label" => "The player is paid up."));
                             echo $this->Form->input('waiver', array("required" => TRUE, "label" => "The player is waivered."));

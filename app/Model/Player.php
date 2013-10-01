@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property User $User
  * @property State $State
+ * @property Division $Division
  * @property Team $Team
  */
 class Player extends AppModel {
@@ -15,6 +16,7 @@ class Player extends AppModel {
  * @var string
  */
 	public $displayField = 'last_name';
+	public $actsAs = array('Containable');
 
 /**
  * Validation rules
@@ -33,6 +35,16 @@ class Player extends AppModel {
 			),
 			'notempty' => array(
 				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'number' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -277,6 +289,34 @@ class Player extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+		),
+		'division_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'tryout_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -343,6 +383,20 @@ class Player extends AppModel {
 		'Team' => array(
 			'className' => 'Team',
 			'foreignKey' => 'team_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Division' => array(
+			'className' => 'Division',
+			'foreignKey' => 'division_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Tryout' => array(
+			'className' => 'Tryout',
+			'foreignKey' => 'tryout_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

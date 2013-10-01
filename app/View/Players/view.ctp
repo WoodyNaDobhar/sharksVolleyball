@@ -26,12 +26,7 @@
                                 <?php echo h($player['Player']['id']); ?>
                                 &nbsp;
                             </dd>
-                            <dt><?php echo __('User'); ?></dt>
-                            <dd>
-                                <?php echo $this->Html->link($player['User']['username'], array('controller' => 'users', 'action' => 'view', $player['User']['id'])); ?>
-                                &nbsp;
-                            </dd>
-                            <dt><?php echo __('First Name'); ?></dt>
+                           <dt><?php echo __('First Name'); ?></dt>
                             <dd>
                                 <?php echo h($player['Player']['first_name']); ?>
                                 &nbsp;
@@ -136,9 +131,24 @@
                                 <?php echo h($player['Player']['try_where']); ?>
                                 &nbsp;
                             </dd>
+                            <dt><?php echo __('Tryout'); ?></dt>
+                            <dd>
+                                <?php echo $this->Html->link($player['Tryout']['ends'], array('controller' => 'tryouts', 'action' => 'view', $player['Tryout']['id'])); ?>
+                                &nbsp;
+                            </dd>
                             <dt><?php echo __('Team'); ?></dt>
                             <dd>
                                 <?php echo $this->Html->link($player['Team']['name'], array('controller' => 'teams', 'action' => 'view', $player['Team']['id'])); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('Jersey #'); ?></dt>
+                            <dd>
+                                <?php echo h($player['Player']['number']); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('Paid'); ?></dt>
+                            <dd>
+                                <?php echo h($player['Player']['paid']); ?>
                                 &nbsp;
                             </dd>
                             <dt><?php echo __('Waiver'); ?></dt>

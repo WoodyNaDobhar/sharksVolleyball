@@ -21,7 +21,7 @@
                             <legend><?php echo __('Edit About'); ?></legend>
                         <?php
                             echo $this->Form->input('id');
-                            echo $this->Form->input('about');
+                            echo $this->Form->input('about', array('class' => 'ckeditor'));
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

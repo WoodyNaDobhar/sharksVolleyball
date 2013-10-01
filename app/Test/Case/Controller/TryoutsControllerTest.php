@@ -13,7 +13,13 @@ class TryoutsControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.tryout'
+		'app.tryout',
+		'app.division',
+		'app.player',
+		'app.state',
+		'app.position',
+		'app.team',
+		'app.divisions_tryout'
 	);
 
 /**

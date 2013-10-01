@@ -5,13 +5,13 @@
 			</div>
 			<div class="row">
 				<div class="span8"><?php
-				
+					
 				if($show == "thanks"){
 				
 ?>
 					<div class="players form">
 						<div class="title"><h3>Thanks!</h3></div>
-						<?php echo $tryout['Tryout']['thanks']; ?>
+						<?php echo $trypage['Trypage']['thanks']; ?>
 					</div><?php
 					
 				}elseif($show == "pay"){
@@ -19,7 +19,7 @@
 ?>
 					<div class="players form">
 						<div class="title"><h3>Payment</h3></div><br />
-						<?php echo $tryout['Tryout']['pay']; ?><br /><br />
+						<?php echo $trypage['Trypage']['pay']; ?><br /><br />
 						<form action="https://<?php echo PAYPALHOST; ?>/cgi-bin/webscr" method="post">
 							<input type="hidden" name="cmd" value="_s-xclick">
 							<input type="hidden" name="hosted_button_id" value="<?php echo PAYPALBUTTONID; ?>">
@@ -72,7 +72,7 @@
 							echo $this->Form->input('try_other', array("label" => "Are you trying out for other clubs?"));
 							echo $this->Form->input('try_where', array("label" => "If so, where?", "div" => array("style" => "display: none;", "id" => "tryMore")));
 							echo $this->Form->input('position_id', array("label" => "What position are you trying out for?"));
-							echo $this->Form->input('team_id', array("after" => "<br>If there are not an adequate number of girls that tryout in a specific age group, the decision on whether to have the team or not will be at the discretion of the director. Also, if we have enough talented players try out at a particular age group, we may have a second team at that particular age group."));
+							echo $this->Form->input('division_id', array("after" => "<br>If there are not an adequate number of girls that tryout in a specific age group, the decision on whether to have the team or not will be at the discretion of the director. Also, if we have enough talented players try out at a particular age group, we may have a second team at that particular age group."));
 							echo $this->Form->input('waiver', array("required" => TRUE, "label" => "It is agreed that all risk attendant to watching and/ or participating in tryout activities, including,
 								but not limited to bodily injury, are assumed by the participant and his, her parents and/or legal
 								guarding as indicated by their signature hereto. It is agreed that parents and/or legal guardian
@@ -96,8 +96,9 @@
 				<div class="span4">
 					<div class="actions">
 						<div class="title"><h3>Registration Info</h3></div>
-						<p>Tryout fee: $<?php echo $tryout['Tryout']['cost']; ?></p>
-						<p><?php echo $tryout['Tryout']['info']; ?></p>
+						<p>Tryout fee: $<?php echo $trypage['Trypage']['cost']; ?></p>
+						<p><?php echo $trypage['Trypage']['info']; ?></p>
+						<p>Looking for results to the latest tryouts? Go <a href="/results">here.</a></p>
 					</div>
 				</div>
 			</div>

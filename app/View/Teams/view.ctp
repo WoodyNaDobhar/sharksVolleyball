@@ -14,6 +14,8 @@
                             <li><?php echo $this->Html->link(__('New Team'), array('action' => 'add')); ?> </li>
                             <li><?php echo $this->Html->link(__('List Players'), array('controller' => 'players', 'action' => 'index')); ?> </li>
                             <li><?php echo $this->Html->link(__('New Player'), array('controller' => 'players', 'action' => 'add')); ?> </li>
+                            <li><?php echo $this->Html->link(__('List Divisions'), array('controller' => 'divisions', 'action' => 'index')); ?> </li>
+                            <li><?php echo $this->Html->link(__('New Division'), array('controller' => 'divisions', 'action' => 'add')); ?> </li>
                         </ul>
                     </div>
 				</div>
@@ -29,6 +31,11 @@
                             <dt><?php echo __('Name'); ?></dt>
                             <dd>
                                 <?php echo h($team['Team']['name']); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('Division'); ?></dt>
+                            <dd>
+                                <?php echo $this->Html->link($team['Division']['name'], array('controller' => 'divisions', 'action' => 'view', $team['Division']['id'])); ?>
                                 &nbsp;
                             </dd>
                         </dl>
