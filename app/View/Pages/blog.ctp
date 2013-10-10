@@ -21,7 +21,7 @@
 	<div id="wrapper">
 				
 		<!--start: Container -->
-    	<div class="container">
+		<div class="container">
 			
 			<!--start: Row -->
 			<div class="row">

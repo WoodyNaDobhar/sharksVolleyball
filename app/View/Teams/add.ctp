@@ -16,12 +16,13 @@
 				</div>
 				<div class="span10">
                     <div class="teams form">
-                    <?php echo $this->Form->create('Team'); ?>
+                    <?php echo $this->Form->create(null, array('type' => 'file'));?>
                         <fieldset>
                             <legend><?php echo __('Add Team'); ?></legend>
                         <?php
                             echo $this->Form->input('name');
                             echo $this->Form->input('division_id');
+                            echo $this->Form->input('photo', array('type' => 'file'));
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

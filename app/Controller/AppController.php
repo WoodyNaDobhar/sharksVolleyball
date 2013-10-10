@@ -80,6 +80,33 @@ class AppController extends Controller {
 		$flickrFeedJson = substr($flickrFeedJson, 0, strlen($flickrFeedJson) - 1);
 		$flickrFeed = json_decode($flickrFeedJson, TRUE);
 		$this->set('flickrFeed', $flickrFeed);
+		
+		//teamYears
+		$this->loadModel('Tryout');
+		$teamYears = $this->Tryout->getTeamYears();
+		$this->set('teamYears', $teamYears);
+		
+		//teamDivisions
+		$this->loadModel('Division');
+		$this->Division->recursive = -1;
+		$teamDivisionsArray = $this->Division->find('all');
+		$teamDivisions = Set::extract('/Division/name', $teamDivisionsArray);
+		$this->set('teamDivisions', $teamDivisions);
+		
+		//about blurb
+		$this->loadModel('About');
+		$aboutShortArray = $this->About->find('first', array(
+			'fields' => array(
+				'about_short'
+			)
+		));
+		$this->set('aboutShort', $aboutShortArray['About']['about_short']);
+		
+		//ads
+		$this->loadModel('Ad');
+		$this->Ad->recursive = -1;
+		$teamAds = $this->Ad->find('all');
+		$this->set('teamAds', $teamAds);
 	}
 
 	//toss anybody who tries to get in the admin area without creds.

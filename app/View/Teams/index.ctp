@@ -24,6 +24,7 @@
                                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                                 <th><?php echo $this->Paginator->sort('name'); ?></th>
                                 <th><?php echo $this->Paginator->sort('division_id'); ?></th>
+                                <th><?php echo $this->Paginator->sort('photo'); ?></th>
                                 <th class="actions"><?php echo __('Actions'); ?></th>
                         </tr>
                         <?php foreach ($teams as $team): ?>
@@ -31,6 +32,7 @@
                             <td><?php echo h($team['Team']['id']); ?>&nbsp;</td>
                             <td><?php echo h($team['Team']['name']); ?>&nbsp;</td>
                             <td><?php echo $this->Html->link($team['Division']['name'], array('controller' => 'divisions', 'action' => 'view', $team['Division']['id'])); ?>&nbsp;</td>
+                            <td><img style="max-width: 100px;" src="<?php echo h($team['Team']['photo']); ?>" /></td>
                             <td class="actions">
                                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $team['Team']['id'])); ?>
                                 <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $team['Team']['id'])); ?>

@@ -69,7 +69,7 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us<b class="caret"></b></a>
 								<ul class="dropdown-menu">
 					  				<li><a href="/about-story">Our Story</a></li>
-									<li><a href="http://www.gametimesportscenter.net">Our Facilities</a></li>
+									<li><a href="http://www.gametimesportscenter.net">Our Facility</a></li>
 									<li><a href="/about-club">Club Information</a></li>
 								</ul>
 				  			</li>
@@ -82,20 +82,24 @@
 				  			</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Teams<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-					  				<li><a href="/Teams/byYear/yyyy">2013</a></li>
-					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
-					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
-					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
-					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
-					  				<li><a href="/Teams/view/x">Team x (by age group)</a></li>
-					  				<li><a href="/Teams/byYear/yyyy">2012</a></li>
-					  				<li><a href="/Teams/byYear/yyyy">2011</a></li>
-					  				<li><a href="/Teams/byYear/yyyy">2010</a></li>
-									<li><a href="/Players">Alumni</a></li>
+								<ul class="dropdown-menu"><?PHP 
+								
+								foreach($teamDivisions as $division){
+									
+									echo '
+					  				<li><a href="/Teams/byDivision/'.$division.'">Division '.$division.'</a></li>';
+								}
+								
+								foreach($teamYears as $year){
+									
+									echo '
+					  				<li><a href="/Teams/byYear/'.$year.'">'.$year.'</a></li>';
+								}
+								
+								?>
 								</ul>
 				  			</li>
-							<li><a href="/store">Store</a></li>
+							<li><a href="/shop">Store</a></li>
 				  			<li><a href="/contact">Contact</a></li>
 						</ul>
 			  		</div>

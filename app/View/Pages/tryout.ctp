@@ -86,7 +86,15 @@
 							echo $this->Form->hidden('paid', array("value" => "0"));
 						?>
 						</fieldset>
-					<?php echo $this->Form->end(__('Submit')); ?>
+					<?php 
+					
+					$options = array
+(
+	'label' => 'Submit',
+	'value' => 'Submit!',
+	'class' => 'btn btn-primary',
+);
+echo $this->Form->end($options); ?>
 					</div><?php
 					
 				}

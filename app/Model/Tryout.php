@@ -13,6 +13,7 @@ class Tryout extends AppModel {
  * @var string
  */
 	public $displayField = 'ends';
+	public $actsAs = array('Containable');
 
 /**
  * Validation rules
@@ -134,6 +135,9 @@ class Tryout extends AppModel {
 					'begins <='	=> $today,
 					'ends >='	=> $today
 				)
+			),
+			'contain'	=> array(
+				'Division',
 			)
 		));
 		
@@ -158,7 +162,9 @@ class Tryout extends AppModel {
 		}else{
 			
 			//get the division
+			$this->Division->recursive = 1;
 			$division = $this->Division->findById($division_id);
+			$this->Division->recursive = -1;
 			
 			return $division['Tryout'][0]['id'];
 		}
@@ -178,6 +184,9 @@ class Tryout extends AppModel {
 					'ends <='	=> $today,
 					'ends >='	=> $threeMonthsAgo
 				)
+			),
+			'contain'	=> array(
+				'Division'
 			)
 		));
 		
@@ -189,5 +198,57 @@ class Tryout extends AppModel {
 		}
 		
 		return $divisions;
+	}
+	
+	function getYearDivisions($year = null){
+		
+		//setup
+		if(!$year){
+			$year = date('Y');
+		}
+		$divisions = array();
+		
+		//get any divisions from this year
+		$tryouts = $this->find('all', array(
+			'conditions'	=> array(
+				'and'	=> array(
+					'ends LIKE'	=> '%'.$year.'%'
+				)
+			),
+			'contain'	=> array(
+				'Division'
+			)
+		));
+		
+		//build a list of the divisions active
+		foreach($tryouts as $tryout){
+			foreach($tryout['Division'] as $division){
+				$division_ids[] = $division['id'];
+			}
+		}
+		
+		return $division_ids;
+	}
+	
+	function getTeamYears(){
+		
+		//setup
+		$thisYear = date('Y');
+		$divisions = array();
+		$endDates = array();
+		
+		//get all the tryouts
+		$this->recursive = -1;
+		$tryouts = $this->find('all');
+		
+		//iterate, getting years
+		foreach($tryouts as $tryout){
+			$endDate = substr($tryout['Tryout']['ends'], 0, 4);
+			if(!in_array($endDate, $endDates)){
+				$endDates[] = $endDate;
+			}
+		}
+		
+		return $endDates;
 	}
 }

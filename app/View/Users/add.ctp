@@ -1,5 +1,5 @@
 	<div id="wrapper">
-    	<div class="container">
+		<div class="container">
 			<div class="row">
 				<div class="span14 spacer25"></div>
 			</div>
@@ -9,8 +9,8 @@
 						<h3><?php echo __('Actions'); ?></h3>
 						<ul>
 							<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index'));?></li>
-                            <li><?php echo $this->Html->link(__('List Players'), array('controller' => 'players', 'action' => 'index')); ?> </li>
-                            <li><?php echo $this->Html->link(__('New Player'), array('controller' => 'players', 'action' => 'add')); ?> </li>
+							<li><?php echo $this->Html->link(__('List Players'), array('controller' => 'players', 'action' => 'index')); ?> </li>
+							<li><?php echo $this->Html->link(__('New Player'), array('controller' => 'players', 'action' => 'add')); ?> </li>
 						</ul>
 					</div>
 				</div>

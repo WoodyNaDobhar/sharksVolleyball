@@ -8,7 +8,7 @@
                     <div class="actions">
                         <h3><?php echo __('Actions'); ?></h3>
                         <ul>
-                            <li><?php echo $this->Html->link(__('List Employees'), array('action' => 'index')); ?></li>
+                            <li><?php echo $this->Html->link(__('List Coaches'), array('action' => 'index')); ?></li>
                         </ul>
                     </div>
 				</div>
@@ -16,7 +16,7 @@
                     <div class="employees form">
 					<?php echo $this->Form->create(null, array('type' => 'file'));?>
                         <fieldset>
-                            <legend><?php echo __('Add Employee'); ?></legend>
+                            <legend><?php echo __('Add Coach'); ?></legend>
                         <?php
                             echo $this->Form->input('name');
                             echo $this->Form->input('title');

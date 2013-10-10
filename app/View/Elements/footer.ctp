@@ -3,25 +3,12 @@
 			<div class="clients-carousel">
 		
 				<ul class="slides clients"><?php
-				
-//get the ads
-if($handle = opendir('ads')) {
-    while(false !== ($entry = readdir($handle))){
-        if($entry != "." && $entry != ".."){
-            $adsArray[] = $entry;
-        }
-    }
-    closedir($handle);
-}
-
-//randomize 'em
-shuffle($adsArray);
 
 //list 'em
-foreach($adsArray as $ad){
+foreach($teamAds as $ad){
 
 	echo '
-					<li><img src="/ads/'.$ad.'" alt="'.$ad.'"/></li>';
+					<li><a target="_blank" href="'.$ad['Ad']['link'].'"><img src="'.$ad['Ad']['image'].'" /></a></li>';
 }
 
 ?>	
@@ -124,7 +111,7 @@ foreach($adsArray as $ad){
 					
 					<h3>About Us</h3>
 					<p>
-						Champaign County Volleyball Club (CCVBC) is a volleyball program dedicated to providing high quality volleyball experiences for girls ages 10-18. All teams will be registered within the Ohio Valley Region (www.ovr.org) of the USA Volleyball Organization (www.usavolleyball.org). It is the intent of our Club, as we work with young ladies, to promote fairness and good sportsmanship.
+						<?=$aboutShort?>
 					</p>
 						
 				</div>

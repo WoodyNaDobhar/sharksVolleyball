@@ -38,6 +38,11 @@
                                 <?php echo $this->Html->link($team['Division']['name'], array('controller' => 'divisions', 'action' => 'view', $team['Division']['id'])); ?>
                                 &nbsp;
                             </dd>
+                            <dt><?php echo __('Photo'); ?></dt>
+                            <dd>
+                                <img src="<?php echo h($team['Team']['photo']); ?>" />
+                                &nbsp;
+                            </dd>
                         </dl>
                     </div>
                     <div class="related">

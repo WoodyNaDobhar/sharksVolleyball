@@ -1,5 +1,5 @@
 	<div id="wrapper">
-    	<div class="container">
+		<div class="container">
 			<div class="row">
 				<div class="span14 spacer25"></div>
 			</div>

@@ -16,7 +16,7 @@
 						<?PHP echo $about['About']['about']; ?>
 					</div>	
 					<div id="team">
-						<div class="title"><h3>Organizers</h3></div>
+						<div class="title"><h3>Coaches</h3></div>
 						<div class="row"><?php 
 		
 			foreach($employees as $employee){

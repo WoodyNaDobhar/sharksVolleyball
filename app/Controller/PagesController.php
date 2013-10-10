@@ -269,6 +269,41 @@ class PagesController extends AppController{
 			));
 			
 			$this->set(compact('divisions'));
+		}elseif($page == 'contact'){
+
+			if($this->request->is('post')){
+			
+				$admin_email = "gametime@ctcn.net";
+				//$admin_email = "woodynadobhar@hotmail.com";
+				
+				function valid_email($email) {
+					return (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $email)) ? FALSE : TRUE;
+				}
+				
+				$name = $this->request->data['name']?$this->request->data['name']:'';
+				$email = $this->request->data['email']?$this->request->data['email']:'';
+				$email = str_replace(' ', '', $email);
+				$user_message = $this->request->data['message']?$this->request->data['message']:'';
+				
+				if(valid_email($email)) {
+							
+					$host  = $_SERVER['HTTP_HOST'];
+					$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');				
+					$message = "$name - $email - send you message.\n\n
+$user_message\n\n
+_____________________________________________
+PLEASE DO NOT REPLY
+";
+			
+					if(!mail($admin_email , "Website Contact Form", $message, "From: \"Website Contact Form\" <no-reply@$host>\r\n" . "X-Mailer: PHP/" . phpversion())){
+						$this->Session->setFlash(__('Sometheing went wrong and your message was not sent.  Please try again.'));
+					};
+					unset($_SESSION['ckey']);
+					$this->Session->setFlash(__('Your message has been sent.'));
+				}else{
+					$this->Session->setFlash(__('The given email doesn\'t seem to be valid.'));
+				}
+			}
 		}
 
 		try{

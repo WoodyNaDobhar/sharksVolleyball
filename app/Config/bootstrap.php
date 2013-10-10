@@ -113,6 +113,9 @@ CakeLog::config('error', array(
  */
 define("FILE_SCROLL", '/img/parallax-slider');
 define("FILE_EMP", '/img/employees');
+define("FILE_PRO", '/img/products');
+define("FILE_ADS", '/img/ads');
+define("FILE_TEAM", '/img/teams');
 
 /**
  * PayPal

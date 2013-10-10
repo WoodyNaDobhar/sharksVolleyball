@@ -81,5 +81,4 @@ class Team extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }

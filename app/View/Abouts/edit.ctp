@@ -9,8 +9,8 @@
                         <h3><?php echo __('Actions'); ?></h3>
                         <ul>
                             <li><?php echo $this->Html->link(__('Edit About Us'), array('action' => 'view')); ?></li>
-							<li><?php echo $this->Html->link(__('List Employees'), array('controller' => 'Employees', 'action' => 'index')); ?></li>
-							<li><?php echo $this->Html->link(__('New Employee'), array('controller' => 'Employees', 'action' => 'add')); ?></li>
+							<li><?php echo $this->Html->link(__('List Coaches'), array('controller' => 'Employees', 'action' => 'index')); ?></li>
+							<li><?php echo $this->Html->link(__('New Coach'), array('controller' => 'Employees', 'action' => 'add')); ?></li>
                         </ul>
                     </div>
 				</div>
@@ -22,6 +22,7 @@
                         <?php
                             echo $this->Form->input('id');
                             echo $this->Form->input('about', array('class' => 'ckeditor'));
+                            echo $this->Form->input('about_short', array('class' => 'ckeditor'));
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

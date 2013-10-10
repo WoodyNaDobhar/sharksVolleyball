@@ -1,0 +1,47 @@
+/*
+jCart v1.3
+http://conceptlogic.com/jcart/
+
+This file represents any existing CSS your site may already use
+
+*/
+
+* { margin:0; padding:0; }
+
+html { background:#fff; font-family:trebuchet ms, candara, sans-serif; font-size:62.5%; }
+body { font-size:1.5em; }
+
+#wrapper { margin:30px auto 250px auto; width:890px; border:solid 1px #ccc; padding:30px; background:#efefef; width: 94%; }
+
+h2, p { margin-bottom:1em; }
+
+#sidebar { width:25%; float:right; }
+
+#content { width:75%; float:left; }
+
+.clear { clear:both; }
+
+/* Item forms */
+.jcart { 
+	margin: 0px 20px 20px 0px;
+	padding: 20px 0px 0px 20px;
+	border: 2px dashed rgb(41, 169, 223);
+	float: left;
+	background: none repeat scroll 0% 0% #fff;
+	text-align: left;
+	width: 94%;
+}
+.jcart ul { margin:0; list-style:none; padding:0 20px; text-align:left; }
+.jcart fieldset { border:0; }
+.jcart strong { color:#000066; }
+.jcart .button { margin:20px; padding:5px; }
+.jcart .productImg {
+	min-height: 25px;
+	min-width: 25px;
+	float: right;
+	width: ;
+	height: ;
+	margin-right: 20px;
+	max-height: 250px;
+	max-width: 250px;
+}

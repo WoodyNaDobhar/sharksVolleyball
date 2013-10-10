@@ -8,8 +8,8 @@
                     <div class="actions">
                         <h3><?php echo __('Actions'); ?></h3>
                         <ul>
-							<li><?php echo $this->Html->link(__('List Employees'), array('controller' => 'Employees', 'action' => 'index')); ?></li>
-							<li><?php echo $this->Html->link(__('New Employee'), array('controller' => 'Employees', 'action' => 'add')); ?></li>
+							<li><?php echo $this->Html->link(__('List Coaches'), array('controller' => 'Employees', 'action' => 'index')); ?></li>
+							<li><?php echo $this->Html->link(__('New Coach'), array('controller' => 'Employees', 'action' => 'add')); ?></li>
                             <li><?php echo $this->Html->link(__('Edit About'), array('action' => 'edit', $about['About']['id'])); ?> </li>
 							<li><?php echo $this->Html->link(__('Testimonials'), array('controller' => 'Testimonials', 'action' => 'index')); ?> </li>
                         </ul>
@@ -27,6 +27,11 @@
                             <dt><?php echo __('About'); ?></dt>
                             <dd>
                                 <?php echo h($about['About']['about']); ?>
+                                &nbsp;
+                            </dd>
+                            <dt><?php echo __('About (small)'); ?></dt>
+                            <dd>
+                                <?php echo h($about['About']['about_short']); ?>
                                 &nbsp;
                             </dd>
                         </dl>

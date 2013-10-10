@@ -21,8 +21,7 @@ jQuery(document).ready(function($){
 		controlNav: false,
 		directionNav: false,
 		move: 2
-      });
-
+    });
 });
 
 
