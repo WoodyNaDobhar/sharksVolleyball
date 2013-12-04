@@ -65,8 +65,8 @@
 					</div>
 				</div>
 				<div class="span4">
-					<div class="title"><h3>Registration Info</h3></div>
-					<p><?php echo $teampage['Teampage']['schedule']; ?></p>
+					<div class="title"><h3>Additional Info</h3></div>
+					<p><?php echo $teampage['Teampage']['additional']; ?></p>
 				</div>
 			</div>
 			<div class="row">

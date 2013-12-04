@@ -257,6 +257,21 @@ class TeamsController extends AppController {
 			),
 		));
 		
-		$this->set(compact('divisions', 'division'));
+		//practices for the division, grouped by team
+		$practicesT = $this->Division->find('first', array(
+			'contain'	=> array(
+				'Team'	=> array(
+					'Practice'
+				),
+			),
+			'conditions'	=> array(
+				'Division.name'	=> $division
+			),
+		));
+		$practices = $practicesT['Team'];
+		debug($practices);
+		die;
+		
+		$this->set(compact('divisions', 'division', 'practices'));
 	}
 }

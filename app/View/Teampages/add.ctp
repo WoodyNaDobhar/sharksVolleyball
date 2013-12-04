@@ -10,9 +10,9 @@
                     <div class="tryouts form">
                     <?php echo $this->Form->create('Teampage'); ?>
                         <fieldset>
-                            <legend><?php echo __('Add Schedule'); ?></legend>
+                            <legend><?php echo __('Add Additional'); ?></legend>
                         <?php
-                            echo $this->Form->input('schedule');
+                            echo $this->Form->input('additional');
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

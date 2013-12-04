@@ -11,17 +11,17 @@ jQuery(document).ready(function($){
 	});
 	
 	$('.clients-carousel').flexslider({
-	    animation: "slide",
+		animation: "slide",
 		easing: "swing",
-	    animationLoop: true,
-	    itemWidth: 1,
-	    itemMargin: 1,
-	    minItems: 1,
-	    maxItems: 8,
+		animationLoop: true,
+		itemWidth: 1,
+		itemMargin: 1,
+		minItems: 1,
+		maxItems: 8,
 		controlNav: false,
 		directionNav: false,
 		move: 2
-    });
+	});
 });
 
 
@@ -32,12 +32,12 @@ jQuery(document).ready(function($){
 	(function() {
 
 		$('[rel=image]').fancybox({
-			type        : 'image',
+			type		: 'image',
 			openEffect  : 'fade',
 			closeEffect	: 'fade',
 			nextEffect  : 'fade',
 			prevEffect  : 'fade',
-			helpers     : {
+			helpers	 : {
 				title   : {
 					type : 'inside'
 				}
@@ -47,12 +47,12 @@ jQuery(document).ready(function($){
 		$('[rel=image-gallery]').fancybox({
 			nextEffect  : 'fade',
 			prevEffect  : 'fade',
-			helpers     : {
+			helpers	 : {
 				title   : {
 					type : 'inside'
 				},
 				buttons  : {},
-				media    : {}
+				media	: {}
 			}
 		});
 
@@ -72,7 +72,7 @@ jQuery(document).ready(function($){
 
 		(function() {
 
-			var $tabsNav    = $('.tabs-nav'),
+			var $tabsNav	= $('.tabs-nav'),
 				$tabsNavLis = $tabsNav.children('li'),
 				$tabContent = $('.tab-content');
 
@@ -106,9 +106,9 @@ jQuery(document).ready(function($){
 
 jQuery(document).ready(function() {
 
-    $('.tooltips').tooltip({
-      selector: "a[rel=tooltip]"
-    })
+	$('.tooltips').tooltip({
+	  selector: "a[rel=tooltip]"
+	})
 
 });
 
@@ -514,5 +514,16 @@ jQuery(document).ready(function($){
 	});
 	$('#PlayerTryOther').click(function(){
 		$('#tryMore').toggle();
+	});
+});
+
+//datepicker
+jQuery(document).ready(function($){
+	$('#dp').datetimepicker({
+		format: 'yyyy-mm-dd hh:ii:00',
+		pick12HourFormat: false,
+		autoclose: true,
+		showMeridian: true,
+		minuteStep: 30
 	});
 });

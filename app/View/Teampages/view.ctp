@@ -18,7 +18,7 @@
                         <dl>
                             <dt><?php echo __('Info'); ?></dt>
                             <dd>
-                                <?php echo h($teampage['Teampage']['schedule']); ?>
+                                <?php echo $teampage['Teampage']['additional']; ?>
                                 &nbsp;
                             </dd>
                         </dl>

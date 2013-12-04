@@ -19,7 +19,7 @@ class Teampage extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'schedule' => array(
+		'additional' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',

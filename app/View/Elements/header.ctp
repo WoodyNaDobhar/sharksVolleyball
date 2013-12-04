@@ -25,6 +25,8 @@
 	<!-- start: CSS -->
 	<link href="/css/bootstrap.css" rel="stylesheet">
 	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="/css/bootstrap-datetimepicker.css" rel="stylesheet">
+	
 	<link href="/css/style.css" rel="stylesheet">
 		
 	<link href="/css/parallax-slider.css" rel="stylesheet">

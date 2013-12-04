@@ -44,33 +44,9 @@ foreach($teamAds as $ad){
 							<li><a href="about.html">Home</a></li>
 							<li><a href="about-story">Our Story</a></li>
 							<li><a href="http://www.gametimesportscenter.net">Our Facilities</a></li>
-							<li><a href="about-rules">Rules & Governance</a></li>
-							<li><a href="join-lessons">Lessons & Training</a></li>
-	                  		<li><a href="join-tryouts">Tryouts</a></li>
-							<li><a href="/Teams">Teams</a></li>
-							<li><a href="/Players">Alumni</a></li>								
-							<li ><a href="calendar">Calendar</a></li>
-							<li ><a href="stats">Stats</a></li>
-							<li ><a href="stats">Shop</a></li>
-	              			<li ><a href="contact.html">Contact</a></li><?php 
-				  			
-				  			//if logged in...
-				  			if($this->Session->check('Auth.User')){
-				  				
-				  				//show the logout and profile buttons
-				  				echo '
-	              			<li ><a href="/users/account/">Account</a></li>
-	              			<li ><a href="/users/logout">Log Out</a></li>';
-				  			}else{
-				  				
-				  				//otherwise, show the login
-				  				echo '
-	                  		<li><a href="/users/add">Sign Up</a></li>
-				  			<li><a href="/users/login">Login</a></li>';
-				  			}
-				  			
-?>
-
+	                  		<li><a href="/tryout">Tryouts</a></li>
+	                  		<li><a href="/shop">Shop</a></li>
+	              			<li ><a href="/contact">Contact</a></li>
 						</ul>
 
 					</div>
@@ -155,13 +131,13 @@ foreach($teamAds as $ad){
 					<!-- end: Follow Us -->
 				
 					<!-- start: Newsletter -->
-					<form id="newsletter">
-						<h3>Newsletter</h3>
-						<p>Please leave us your email</p>
-						<label for="newsletter_input">@:</label>
-						<input type="text" id="newsletter_input"/>
-						<input type="submit" id="newsletter_submit" value="submit">
-					</form>
+<!-- 					<form id="newsletter"> -->
+<!-- 						<h3>Newsletter</h3> -->
+<!-- 						<p>Please leave us your email</p> -->
+<!-- 						<label for="newsletter_input">@:</label> -->
+<!-- 						<input type="text" id="newsletter_input"/> -->
+<!-- 						<input type="submit" id="newsletter_submit" value="submit"> -->
+<!-- 					</form> -->
 					<!-- end: Newsletter -->
 				
 				</div>
@@ -211,6 +187,8 @@ foreach($teamAds as $ad){
 <script src="/js/jquery.flot.pie.min.js"></script>
 <script src="/js/jquery.flot.stack.js"></script>
 <script src="/js/jquery.flot.resize.min.js"></script>
+
+<script src="/js/bootstrap-datetimepicker.min.js"></script>
 
 <script src="/js/custom.js"></script>
 <!-- end: Java Script -->

@@ -19,7 +19,7 @@
                             <legend><?php echo __('Edit Schedule'); ?></legend>
                         <?php
                             echo $this->Form->input('id');
-                            echo $this->Form->input('schedule', array('class' => 'ckeditor'));
+                            echo $this->Form->input('additional', array('class' => 'ckeditor'));
                         ?>
                         </fieldset>
                     <?php echo $this->Form->end(__('Submit')); ?>

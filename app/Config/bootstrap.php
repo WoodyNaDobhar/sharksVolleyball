@@ -120,12 +120,12 @@ define("FILE_TEAM", '/img/teams');
 /**
  * PayPal
  */
-define("PAYPALID", 'SuOgVGBpq1mZektCRSCWKw0GPfOPFza9ZCLdwTRwTkF3VESCXeROWGsrEh0');
-define("PAYPALHOST", 'www.sandbox.paypal.com');
-define("PAYPALBUTTONID", 'S8M7S6CBHAGTU');
-// define("PAYPALID", 'rm2AUD27c_X68lcYxer0BFxMZAiEpv2rV6VblVL5j8eaHqS5pvMRB-O5poW');
-// define("PAYPALHOST", 'www.paypal.com');
-// define("PAYPALBUTTONID", 'N872ZJEVC5ZYG');
+//define("PAYPALID", 'SuOgVGBpq1mZektCRSCWKw0GPfOPFza9ZCLdwTRwTkF3VESCXeROWGsrEh0');
+//define("PAYPALHOST", 'www.sandbox.paypal.com');
+//define("PAYPALBUTTONID", 'S8M7S6CBHAGTU');
+define("PAYPALID", 'rm2AUD27c_X68lcYxer0BFxMZAiEpv2rV6VblVL5j8eaHqS5pvMRB-O5poW');
+define("PAYPALHOST", 'www.paypal.com');
+define("PAYPALBUTTONID", 'N872ZJEVC5ZYG');
 
 /**
  * icons
